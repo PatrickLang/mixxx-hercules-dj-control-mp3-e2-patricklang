@@ -467,7 +467,7 @@ HerculesMP3e2.pitch = function(midino, control, value, status, group) {
     // Simple: pitch slider
     // Shifted: Headphone volume and pre/main (these are 4-deck independent)
     // Supershifted: QuickEffect Filter knob
-    // TODO[patricklang] - implement fine adjustment (0.05 vs 0.5)
+    // TODO[patricklang] - implement coarse adjustment with modifier
 
     var sign;
     var newValue;
@@ -496,8 +496,8 @@ HerculesMP3e2.pitch = function(midino, control, value, status, group) {
         }
     } else {
         var deck = HerculesMP3e2.switchDeck(group);
-        engine.setValue(deck, (value == 1) ? "rate_perm_up" : "rate_perm_down", 1);
-        engine.setValue(deck, (value == 1) ? "rate_perm_up" : "rate_perm_down", 0);
+        engine.setValue(deck, (value == 1) ? "rate_perm_up_small" : "rate_perm_down_small", 1);
+        engine.setValue(deck, (value == 1) ? "rate_perm_up_small" : "rate_perm_down_small", 0);
     }
 };
 
