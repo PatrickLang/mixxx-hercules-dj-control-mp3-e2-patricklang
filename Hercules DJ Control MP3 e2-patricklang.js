@@ -467,6 +467,7 @@ HerculesMP3e2.pitch = function(midino, control, value, status, group) {
     // Simple: pitch slider
     // Shifted: Headphone volume and pre/main (these are 4-deck independent)
     // Supershifted: QuickEffect Filter knob
+    // TODO[patricklang] - implement fine adjustment (0.05 vs 0.5)
 
     var sign;
     var newValue;
@@ -910,6 +911,8 @@ HerculesMP3e2.pfl = function(midino, control, value, status, group) {
     if (value) {
         engine.setValue(deck, "pfl", !(engine.getValue(deck, "pfl")));
     }
+
+    // TODO[patricklang] - replicate typical DJ mixers - play main mix on headphones if no PFL set
 };
 
 HerculesMP3e2.play = function(midino, control, value, status, group) {
