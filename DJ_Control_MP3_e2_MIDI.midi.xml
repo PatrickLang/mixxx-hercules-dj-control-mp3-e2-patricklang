@@ -9,7 +9,7 @@
     </info>
     <controller id="DJ">
         <scriptfiles>
-            <file functionprefix="HerculesMP3e2" filename="Hercules DJ Control MP3 e2-scripts.js"/>
+            <file functionprefix="HerculesMP3e2" filename="Hercules DJ Control MP3 e2-patricklang.js"/>
         </scriptfiles>
         <controls>
             <control>
