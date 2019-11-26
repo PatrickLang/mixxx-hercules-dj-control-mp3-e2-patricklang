@@ -901,6 +901,17 @@ HerculesMP3e2.wind = function(midino, control, value, status, group) {
     }
 };
 
+HerculesMP3e2.isAnyPflSet = function() {
+    for (i=1 ; i <= 4 ; i++)
+    {
+        var group = "[Channel"+i+"]"
+        if (engine.getParameter(group,"pfl") == true)
+        {
+            return true;
+        }
+    }
+}
+
 HerculesMP3e2.pfl = function(midino, control, value, status, group) {
     //normal: pfl / Headphones
     //shift: pfl / Headphones
@@ -912,7 +923,14 @@ HerculesMP3e2.pfl = function(midino, control, value, status, group) {
         engine.setValue(deck, "pfl", !(engine.getValue(deck, "pfl")));
     }
 
-    // TODO[patricklang] - replicate typical DJ mixers - play main mix on headphones if no PFL set
+    if (HerculesMP3e2.isAnyPflSet())
+    {
+        engine.setValue("[Master]", "headMix", -1)
+    }
+    else
+    {
+        engine.setValue("[Master]", "headMix", 1)
+    }
 };
 
 HerculesMP3e2.play = function(midino, control, value, status, group) {
